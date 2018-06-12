@@ -5,6 +5,7 @@
   "author": "lholznagel",
   "license": "MIT",
   "scripts": {
+    "start": "ts-node bootstrap",
     "test": "nyc --clean --all --require ts-node/register --require reflect-metadata/Reflect --extension .ts -- mocha --exit --timeout 5000",
     "test:all": "npm test **/*.spec.ts"
   },

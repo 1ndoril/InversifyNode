@@ -41,3 +41,7 @@ typings
 temp
 
 package-lock.json
+.data
+ecosystem.config.yaml
+deploy/config/deploy/*.rb
+config/*.json

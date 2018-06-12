@@ -1,17 +1,25 @@
 import { Db, ObjectID } from 'mongodb';
 import { injectable } from 'inversify';
+import * as mongoose from 'mongoose';
+import * as config from 'config';
 import { MongoDBConnection } from './connection';
 import { User } from '../../models/user';
 
 @injectable()
 export class MongoDBClient {
-  public db: Db;
+  private  host  = config.get('dbConfig') 
+  public db: mongoose.Connection=mongoose.connection;
 
   constructor() {
-    MongoDBConnection.getConnection((connection) => {
-      this.db = connection;
-    });
+    mongoose.connect(this.host, { useMongoClient: true });
+    (mongoose as any).Promise = Promise;
   }
+  db.on('error', (err: Error) => console.log(`db connect error  ${err}`));
+  db.once('open', () => {
+    console.log(`db open connection`);
+    cb(db);
+  });
+  db.once('close', () => console.log(`db close connection`));
 
   public find(collection: string, filter: Object, result: (error, data) => void): void {
     this.db.collection(collection).find(filter).toArray((error, find) => {

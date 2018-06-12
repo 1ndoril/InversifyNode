@@ -1,0 +1,64 @@
+{
+  "dbConfig": {
+    "host": string
+  },
+  "jwtConf": {
+    "secret": string
+  },
+  "appConfig": {
+    "port": number
+  },
+  "mailer": {
+    "pass": string,
+    "host": string",
+    "port": number,
+    "user": string,
+    "timeOfHashLife": number
+  },
+  "expireTime": {
+    "time": number
+  },
+  "languages": string[],
+  "domain": string,
+  "ws_prefix": string,
+  "activeEquipmentInterval": number
+  "ws_prefix": string,
+  "cliIdentification": string
+  "finance": {
+    "totalCode": "0202",
+    "spentCode": "0203",
+    "encashmentCode": "0204",
+    "bonusCode": "0205"
+  },
+  "ws": {
+    "url": string,
+    "prefix": string
+  },
+  protocols: [
+    "0215",
+    "0216",
+    "0217",
+    "0218",
+    "0219",
+    "021a",
+    "021b",
+    "021c",
+    "021d",
+    "021e",
+    "021f",
+    "0220",
+    "0221",
+    "0222",
+    "0223",
+    "0224",
+    "0225",
+    "0226",
+    "0227",
+    "0228",
+    "0229",
+    "022a",
+    "022b",
+    "022c",
+    "022d"
+  ]
+}

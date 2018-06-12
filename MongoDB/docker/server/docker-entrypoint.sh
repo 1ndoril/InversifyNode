@@ -6,4 +6,4 @@ if [ ! -d /var/www/planarsys/node_modules ]; then
   npm cache clean -f  &&  npm install
 fi;
 
-npm run transpile && npm start
+npm start
