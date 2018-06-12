@@ -1,14 +1,18 @@
 import 'reflect-metadata';
+// import * as mongoose from 'mongoose';
 import { InversifyExpressServer } from 'inversify-express-utils';
 import { Container } from 'inversify';
 import { makeLoggerMiddleware } from 'inversify-logger-middleware';
 import * as bodyParser from 'body-parser';
 import * as helmet from 'helmet';
+import * as config from 'config';
 import TYPES from './constant/types';
 import { UserService } from './service/user';
 import { MongoDBClient } from './utils/mongodb/client';
 import './controller/home';
 import './controller/user';
+import {params} from './utils/params';
+const { port } = config.get('appConfig') as { port: number };
 
 // load everything needed to the Container
 let container = new Container();
@@ -33,6 +37,6 @@ server.setConfig((app) => {
 
 let app = server.build();
 app.listen(3000);
-console.log('Server started on port 3000 :)');
+console.log(`Server started on port ${params.port || port} :)`);
 
 exports = module.exports = app;

@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  server:
+    container_name: planarsys-server-node
+    build: docker/server
+    command: npm run dev-serve-debug
+    ports:
+      - 8090:8090
+      - 5858:5858
+      - 5859:5859
+    volumes:
+      - ./:/var/www/planarsys
+    environment:
+      - COMPOSE_HTTP_TIMEOUT=300
+    tty: true
+    networks:
+      - planarsysfront_network
+
+  mongodb:
+    container_name: planarsys-mongodb
+    build: docker/db
+    ports:
+      - 27017:27017
+    volumes:
+      - ./.data/mongodb:/data/db
+    networks:
+      - planarsysfront_network
+
+
+networks:
+  planarsysfront_network:
+    external: true

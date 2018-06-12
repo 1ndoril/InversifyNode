@@ -9,7 +9,10 @@
     "test:all": "npm test **/*.spec.ts"
   },
   "dependencies": {
+    "@types/config": "0.0.34",
+    "@types/mongoose": "^5.0.15",
     "body-parser": "1.18.3",
+    "config": "^1.30.0",
     "express": "4.16.2",
     "helmet": "3.12.1",
     "inversify": "4.13.0",
@@ -17,6 +20,7 @@
     "inversify-express-utils": "6.0.0",
     "inversify-logger-middleware": "3.1.0",
     "mongodb": "3.1.0-beta4",
+    "mongoose": "^5.1.5",
     "morgan": "1.9.0",
     "pg": "7.4.1",
     "reflect-metadata": "0.1.12",
